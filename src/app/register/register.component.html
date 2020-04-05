@@ -1,0 +1,47 @@
+<form [formGroup]="registerForm" role="form" novalidate >
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="FirstName">First name</label>
+        <input type="text" class="form-control is-invalid" formControlName="FirstName" placeholder="First Name" required >
+        <div *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)" class="alert alert-danger">
+        <div *ngIf="FirstName.errors.required">
+          First Name is required.
+        </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="LastName">Last Name</label>
+        <input type="text" class="form-control is-invalid" formControlName="LastName" placeholder="Last Name" required >
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="Username">Username</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="spanUsername">@</span>
+          </div>
+          <input type="text" class="form-control is-invalid" placeholder="Username" formControlName="UserName" required >
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control is-invalid" placeholder="Password" formControlName="Password" required >
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="EmailId">Email Address</label>
+        <input type="email" class="form-control is-invalid" placeholder="Email Address" formControlName="EmailId" required >
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="Contact">Contact</label>
+        <input type="text" class="form-control is-invalid" placeholder="Contact Number" formControlName="Contact" required >
+      </div>
+      <div class="col-md-12 mb-3">
+          <label for="Address">Address</label>
+          <textarea type="text" class="form-control is-invalid" placeholder="Address" formControlName="Address" required ></textarea>
+        </div>
+    </div>
+    
+    <button class="btn btn-primary" type="submit" (click)="register()" >Submit</button>
+    <button class="btn btn-primary" type="reset">Reset</button>
+  </form>
